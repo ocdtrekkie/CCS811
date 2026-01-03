@@ -45,7 +45,7 @@ class CCS811(object):
         # doesn't seem to work
 
     def data_ready(self):
-        """returns true if new data was downloaded. Values in .eCO2 and .tVOV"""
+        """returns true if new data was downloaded. Values in .eCO2 and .tVOC"""
         status = self.i2c.readfrom_mem(self.addr, 0x00, 1)
         # bit 3 in the status register: data_ready
         if (status[0] >> 3) & 0x01:
